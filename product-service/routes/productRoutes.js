@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { addProduct, getAllProducts, getProductById } = require('../controller/product');
+const { addProduct, getAllProducts, getProductById } = require('../controllers/product');
 
-router.post('/products', addProduct);
-router.get('/products', getAllProducts);
-router.get('/products/:id', getProductById);
+// No extra `/products` here since it's already mounted in server.js
+router.post('/', addProduct);
+router.get('/', getAllProducts);
+router.get('/:id', getProductById);
 
 module.exports = router;
